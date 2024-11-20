@@ -1,0 +1,1 @@
+export type Route = "/analyze/hydration-impact" | "/analyze/1" | "/analyze/2" | "/analyze/3" | "/analyze/4"
