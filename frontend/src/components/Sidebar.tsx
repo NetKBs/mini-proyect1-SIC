@@ -1,9 +1,9 @@
 import { Button } from '@nextui-org/react'
-import { SIDEBAR_ITEMS } from "../../constants/sidebar.constants";
+import { SIDEBAR_ITEMS } from "../constants/sidebar.constants";
 
 export default function Sidebar() {
   return (
-    <aside className='w-[20%] h-screen bg-slate-700'>
+    <aside className='w-[20%] h-screen bg-slate-700 fixed'>
       <h2 className='text-2xl p-4'>
         GymBoard
       </h2>
