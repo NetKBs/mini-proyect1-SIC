@@ -90,3 +90,59 @@ def experience_workout_evolution() -> dict:
 	}
 
   return data_returned
+
+def duration_of_sessions() -> dict:
+    df = dataframe_general.copy()
+    correlation_calories_burned = df["Session_Duration (hours)"].corr(df["Calories_Burned"])
+    correlation_water_intake = df["Session_Duration (hours)"].corr(df["Water_Intake (liters)"] )
+    correlation_fat_percentage = df["Session_Duration (hours)"].corr( df["Fat_Percentage"])
+    correlation_frequency = df["Session_Duration (hours)"].corr(df["Workout_Frequency (days/week)"])
+
+    # Agrupar datos por duración de la sesión y calcular valores medios
+    grouped_stats = (
+        df.groupby("Session_Duration (hours)")
+        .agg(
+            {
+                "Calories_Burned": ["mean"],
+                "Water_Intake (liters)": ["mean"],
+                "Workout_Frequency (days/week)": ["mean"],
+                "Fat_Percentage": ["mean"],
+            }
+        )
+        .reset_index()
+    )
+
+    # Aplanar columnas
+    grouped_stats.columns = ["_".join(col).strip() for col in grouped_stats.columns.values]
+
+    result = {
+        "result_dataframe": grouped_stats.to_dict(orient="records"),
+        "dataframe": [
+            {
+                "labels": ["Duración de la Sesión", "Calorías Quemadas"],
+                "correlation": float(correlation_calories_burned * 100),
+                "x": grouped_stats["Session_Duration (hours)_"].to_list(),
+                "y": grouped_stats["Calories_Burned_mean"].to_list(),
+            },
+            {
+                "labels": ["Duración de la Sesión", "Ingesta de Agua"],
+                "correlation": float(correlation_water_intake * 100),
+                "x": grouped_stats["Session_Duration (hours)_"].to_list(),
+                "y": grouped_stats["Water_Intake (liters)_mean"].to_list(),
+            },
+            {
+                "labels": ["Duración de la Sesión", "Porcentaje de Grasa"],
+                "correlation": float(correlation_fat_percentage * 100),
+                "x": grouped_stats["Session_Duration (hours)_"].to_list(),
+                "y": grouped_stats["Fat_Percentage_mean"].to_list(),
+            },
+            {
+                "labels": ["Duración de la Sesión", "Frecuencia de Entrenamiento"],
+                "correlation": float(correlation_frequency * 100),
+                "x": grouped_stats["Session_Duration (hours)_"].to_list(),
+                "y": grouped_stats["Workout_Frequency (days/week)_mean"].to_list(),
+            },
+        ],
+    }
+
+    return result

@@ -13,3 +13,8 @@ def get_hydration_impact():
 def get_experience_impact():
         result = analysis.experience_workout_evolution()
         return result
+
+@app.get("/analyze/duration-impact")
+def get_duration_impact():
+        result = analysis.duration_of_sessions()
+        return result
