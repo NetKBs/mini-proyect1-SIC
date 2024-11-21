@@ -7,18 +7,18 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
   },
   {
     label: "Frecuencia de Entrenamiento",
-    link: "/analyze/1"
-  },
-  {
-    label: "BPM en Tipos de Entrenamientos",
-    link: "/analyze/2"
-  },
-  {
-    label: "Evolución por Experiencia",
     link: "/analyze/3"
   },
   {
-    label: "Duración de las Sesiones",
+    label: "BPM en Tipos de Entrenamientos",
     link: "/analyze/4"
+  },
+  {
+    label: "Evolución por Experiencia",
+    link: "/analyze/experience-impact"
+  },
+  {
+    label: "Duración de las Sesiones",
+    link: "/analyze/duration-impact"
   },
 ]

@@ -1,4 +1,5 @@
 import { Button } from '@nextui-org/react'
+import { Link } from 'react-router-dom'
 import { SIDEBAR_ITEMS } from "../constants/sidebar.constants";
 
 export default function Sidebar() {
@@ -9,9 +10,11 @@ export default function Sidebar() {
       </h2>
       {
         SIDEBAR_ITEMS.map(item => (
-          <Button className='my-3 w-[90%] mx-3 bg-slate-600 text-white transition-all duration-500 hover:bg-slate-800'>
-            { item.label }
-          </Button>
+          <Link to={item.link}>
+            <Button className='my-3 w-[90%] mx-3 bg-slate-600 text-white transition-all duration-500 hover:bg-slate-800'>
+              { item.label }
+            </Button>
+          </Link>
         ))
       }
     </aside>
