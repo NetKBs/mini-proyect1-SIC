@@ -2,35 +2,34 @@ import pandas as pd
 
 dataframe_general = pd.read_csv("./dataset/gym_members_exercise_tracking.csv")
 
-def workout_frecuency_impact() -> dict:
+def  workout_frecuency_impact() -> dict:
   df = dataframe_general.copy()
   #Correlacion
   Workout_Frequency_Fat_Percentage = df["Workout_Frequency (days/week)"].corr(df["Fat_Percentage"])
   Workout_Frequency_BMI = df["Workout_Frequency (days/week)"].corr(df["BMI"])
-
   #agrupacion
   grouped_stats = df.groupby("Workout_Frequency (days/week)").agg({
       "Fat_Percentage": ["mean"],
       "BMI": ["mean"]
   }).reset_index()
-
   #aplanando
+  
   grouped_stats.columns = ['_'.join(col).strip() for col in grouped_stats.columns.values]
-
+  #diccionario
   result = {
       "result_dataframe": grouped_stats.to_dict(orient="records"),
       "dataframe": [
           {
-              "labels": ["Frecuencia de ejercicios", "Calorías Quemadas"] ,
+              "labels": ["Frecuencia de ejercicios(dias a la semana)", "Porcentaje de grasa corporal"] ,
               "correlation": float(Workout_Frequency_Fat_Percentage * 100),
-              "x": grouped_stats["Workout_Frequency (days/week)_"].to_list(),
-              "y": grouped_stats["Fat_Percentage_mean"].to_list(),
+              "x": grouped_stats["Workout_Frequency (days/week)_"].to_list(), 
+              "y": grouped_stats["Fat_Percentage_mean"].to_list(), 
           },
           {
-              "labels": ["Frecuencia de ejercicios", "Indice de masa corporal"] ,
+              "labels": ["Frecuencia de ejercicios(dias a la semana)", "Indice de masa corporal"] ,
               "correlation": float(Workout_Frequency_BMI * 100),
-              "x": grouped_stats["Workout_Frequency (days/week)_"].to_list(),
-              "y": grouped_stats["BMI_mean"].to_list(),
+              "x": grouped_stats["Workout_Frequency (days/week)_"].to_list(), 
+              "y": grouped_stats["BMI_mean"].to_list(), 
           }
       ]
   }
