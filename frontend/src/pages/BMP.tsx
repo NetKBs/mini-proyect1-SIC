@@ -3,12 +3,12 @@ import { useEffect, useState } from "react"
 import { Api } from "../services/Api"
 import { Dataframe } from "../interfaces/api.interface"
 
-export default function Hydratation() {
+export default function BMP() {
   const [dataPlot, setDataPlot] = useState<Dataframe[]>([] as Dataframe[])
 
   const getPlotData = async () => {
     const api = new Api()
-    const data = await api.get("/analyze/hydration-impact")
+    const data = await api.get("/analyze/bmi-impact")
     setDataPlot(data.dataframe)
   }
   
@@ -19,7 +19,7 @@ export default function Hydratation() {
   return (
     <main className="w-[80%] p-5 float-right">
       <h1 className="text-3xl">
-        GymBoard - Ingesta de agua
+        GymBoard - Frecuencia cardiaca (BMP)
       </h1>
       <p className="py-3">
         En este podras encontrar diversos analisis desarrollados a partir de un conjunto de datos recopilados por multiples participantes del fitness, con caracteristicas diferentes como nivel de experiencia, ingesta de agua por litro, frecuencia cardiaca, etc.

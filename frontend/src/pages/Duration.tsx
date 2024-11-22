@@ -1,24 +1,43 @@
 import Plot from "../components/Plot"
+import { useEffect, useState } from "react"
+import { Api } from "../services/Api"
+import { Dataframe } from "../interfaces/api.interface"
 
 export default function Duration() {
+  const [dataPlot, setDataPlot] = useState<Dataframe[]>([] as Dataframe[])
+
+  const getPlotData = async () => {
+    const api = new Api()
+    const data = await api.get("/analyze/duration-impact")
+    setDataPlot(data.dataframe)
+  }
+  
+  useEffect(() => {
+    getPlotData()
+  }, [])
+
   return (
     <main className="w-[80%] p-5 float-right">
-        <h1 className="text-3xl">
-          GymBoard - Duracion de sesiones
-        </h1>
-        <p className="py-3">
-          En este podras encontrar diversos analisis desarrollados a partir de un conjunto de datos recopilados por multiples participantes del fitness, con caracteristicas diferentes como nivel de experiencia, ingesta de agua por litro, frecuencia cardiaca, etc.
-        </p>
+      <h1 className="text-3xl">
+        GymBoard - Duracion de las sesiones
+      </h1>
+      <p className="py-3">
+        En este podras encontrar diversos analisis desarrollados a partir de un conjunto de datos recopilados por multiples participantes del fitness, con caracteristicas diferentes como nivel de experiencia, ingesta de agua por litro, frecuencia cardiaca, etc.
+      </p>
 
-        <Plot 
-          data={{
-            title: "No se XD",
-            x: ["Principiante", "Intermedio", "Avanzado"],
-            y: [726.375, 901.9187192118227, 1265.3403141361257],
-            labels: ["Niveles de experiencia", "Calorias quemadas"],
-            correlation: 69.41
-          }}
-        />
-      </main>
+      {
+        dataPlot.map((data, index) => (
+          <Plot 
+            key={index}
+            data={{
+              x: data.x,
+              y: data.y,
+              labels: data.labels,
+              correlation: data.correlation
+            }}
+          />
+        ))
+      }
+    </main>
   )
 }
