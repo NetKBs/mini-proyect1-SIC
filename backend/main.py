@@ -30,3 +30,13 @@ def get_experience_impact():
 def get_duration_impact():
         result = analysis.duration_of_sessions()
         return result
+
+@app.get("/analyze/bmi-impact")
+def get_bmi_impact():
+        result = analysis.BMI_performance_analysys()
+        return result
+
+@app.get("/analyze/frecuency-impact")
+def get_frecuency_impact():
+        result = analysis.workout_frecuency_impact()
+        return result
