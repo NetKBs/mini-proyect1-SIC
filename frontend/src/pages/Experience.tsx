@@ -22,7 +22,7 @@ export default function Experience() {
         GymBoard - Evolucion de la experiencia 
       </h1>
       <p className="py-3">
-        En este podras encontrar diversos analisis desarrollados a partir de un conjunto de datos recopilados por multiples participantes del fitness, con caracteristicas diferentes como nivel de experiencia, ingesta de agua por litro, frecuencia cardiaca, etc.
+        En la categoria de la evolucion de la experiencia, podemos visualizar que el indice que mas influye son las calorias quemadas en base a la transicion del individuo con un nivel de experiencia bajo, a un nivel mayor o profesional, siendo este un crecimiento con una correlacion de mas del 60%.
       </p>
 
       {

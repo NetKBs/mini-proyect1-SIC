@@ -22,7 +22,7 @@ export default function Hydratation() {
         GymBoard - Ingesta de agua
       </h1>
       <p className="py-3">
-        En este podras encontrar diversos analisis desarrollados a partir de un conjunto de datos recopilados por multiples participantes del fitness, con caracteristicas diferentes como nivel de experiencia, ingesta de agua por litro, frecuencia cardiaca, etc.
+        En la relación del nivel de ingesta de agua, podemos notar que una ingesta alta de agua influye moderadamente a la quema de calorías en los miembros de gimnasio. Sin embargo al tener una correlación no tan fuerte de 35% , otros factores participan en esta quema de calorías
       </p>
 
       {

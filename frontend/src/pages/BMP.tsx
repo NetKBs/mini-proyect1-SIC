@@ -22,7 +22,7 @@ export default function BMP() {
         GymBoard - Frecuencia cardiaca (BMP)
       </h1>
       <p className="py-3">
-        En este podras encontrar diversos analisis desarrollados a partir de un conjunto de datos recopilados por multiples participantes del fitness, con caracteristicas diferentes como nivel de experiencia, ingesta de agua por litro, frecuencia cardiaca, etc.
+        Se puede ver en la gráfica que las personas con mayor masa corporal tienden a quemar más calorías en comparación con aquellas con menor masa corporal, pero es importante hacer notar que el BMI no distingue entre masa muscular y masa grasa por lo que una persona con un BMI alto debido a una mayor masa muscular puede tener un gasto calórico diferente en comparación con alguien con un BMI alto debido a una mayor cantidad de grasa corporal.
       </p>
 
       {
