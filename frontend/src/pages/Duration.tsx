@@ -22,7 +22,7 @@ export default function Duration() {
         GymBoard - Duracion de las sesiones
       </h1>
       <p className="py-3">
-        En este podras encontrar diversos analisis desarrollados a partir de un conjunto de datos recopilados por multiples participantes del fitness, con caracteristicas diferentes como nivel de experiencia, ingesta de agua por litro, frecuencia cardiaca, etc.
+        La duración de los ejercicios son un impacto significativo ante la pérdida de calorías como podemos ver es un ritmo creciente y nunca decreciente ya que siempre está en constante quema de calorías, asi podemos calcular y decir que entre más tiempo más perdida y mas al igual que dependiendo del ejercicio que la persona realice.
       </p>
 
       {

@@ -22,7 +22,7 @@ export default function Frecuency() {
         GymBoard - Frecuencia de entrenamiento
       </h1>
       <p className="py-3">
-        En este podras encontrar diversos analisis desarrollados a partir de un conjunto de datos recopilados por multiples participantes del fitness, con caracteristicas diferentes como nivel de experiencia, ingesta de agua por litro, frecuencia cardiaca, etc.
+        Como se puede apreciar en la gráfica cuanto mas días se haga mas bajo estará el porcentaje de grasa corporal, haciendo una observación aun que con 5 días sea el mas bajo no es del todo recomendado no al menos para las mujeres ya que, el porcentaje de grasa ideal en mujeres es del 14% al 31% mientras que en los hombres es del 6% al 24% entonces la recomendación es que en el caso de las mujeres se haga 4 o 5 días y el hombres se priorice hacer 5 días
       </p>
 
       {
